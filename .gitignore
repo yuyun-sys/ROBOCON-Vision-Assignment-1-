@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.conda/
+envs/
+build/:
+*.mp4
+*.avi
