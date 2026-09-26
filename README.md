@@ -1,5 +1,6 @@
- # Assignment 1
- ## 1. System Information
+# Assignment 1
+
+## 1. System Information
 ## 2. Python Project A
 ## 3. Process Observation
 ## 4. Python Project B
