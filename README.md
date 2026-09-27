@@ -3,6 +3,7 @@
 
 
 ## 1. System Information
+```bash
 cat /etc/os-release
 #VERSION="22.04.5 LTS (Jammy Jellyfish)"
 uname -r
@@ -23,12 +24,13 @@ lspci -k | grep -EA3 'VGA|3D|Display'
 #	Kernel modules: amdgpu
 echo "$XDG_SESSION_TYPE"
 #wayland
-无NAVIDA GPU
-无CUDA
-
+#无NAVIDA GPU
+#无CUDA
+```
 
 
 ## 2. Python Project A
+```bash
 conda create -n robocon_a python=3.10 -y
 #Channels:
 # - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
@@ -50,10 +52,11 @@ python camera.py --output ../../assets/python_a/raw_capture第五次.mp4
 #Captured frames: 336
 #Elapsed time:    34.5 s
 #Loop rate:       9.7 frame/s
-
+```
 
 
 ## 3. Process Observation
+```bash
 python camera.py --output ../../assets/python_a/文档观察2.mp4
 pgrep -af 'python.*camera.py'
 #6919 python camera.py --output ../../assets/python_a/文档观察2.mp4
@@ -107,10 +110,11 @@ python analyze_video.py --input ../../assets/python_a/raw_capture第五次.mp4 -
 #Processed 300 frames...
 #Processed 330 frames...
 #Input:  /home/hu/桌面/ROBOCON-Vision-Assignment-1/assets/python_a/raw_capture第五次.mp4
-
+```
 
 
 ## 5. C++ Manual Build
+```bash
 mkdir -p build
 g++ -std=c++17 src/main.cpp src/transform.cpp \
   -Iinclude \
@@ -125,18 +129,20 @@ g++ -std=c++17 src/main.cpp src/transform.cpp \
 #Frames: 336
 #Mean scene luma: 55.7657
 #Panels: original | Otsu binary | Canny edges
-Q1：-I作用是什么
-A1：全称Include（头文件，让代码能正确地被分开编译） path，可以指明头文件在磁盘中的位置
-Q2：为什么transform.hpp不单独作为cpp文件编译
-A2：缺少main函数，编译器无法编译。而transform包含了代码的流程，负责被调用但不需要执行流程。
-Q3：为什么只写main.cpp往往无法得到完整程序
-A3：main.cpp只负责组装，无法提供具体函数。
-Q4：编译成功产生的文件是什么
-A4：中间文件（.o）
+#Q1：-I作用是什么
+#A1：全称Include（头文件，让代码能正确地被分开编译） path，可以指明头文件在磁盘中的位置
+#Q2：为什么transform.hpp不单独作为cpp文件编译
+#A2：缺少main函数，编译器无法编译。而transform包含了代码的流程，负责被调用但不需要执行流程。
+#Q3：为什么只写main.cpp往往无法得到完整程序
+#A3：main.cpp只负责组装，无法提供具体函数。
+#Q4：编译成功产生的文件是什么
+#A4：中间文件（.o）
+```
 
 
 
 ## 6. CMake Build
+```bash
 cat > CMakeLists.txt << 'EOF'
 cmake_minimum_required(VERSION 3.16)
 
@@ -175,8 +181,9 @@ cmake --build build -j$(nproc)
 #Frames: 336
 #Mean scene luma: 55.7657
 #Panels: original | Otsu binary | Canny edges
-Q：手工g++和CMake的关系
-A：g++负责编译并进行具体操作，CMake调用g++
+#Q：手工g++和CMake的关系
+#A：g++负责编译并进行具体操作，CMake调用g++
+```
 
 
 ## 7. Git / GitHub
