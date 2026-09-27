@@ -175,7 +175,8 @@ cmake --build build -j$(nproc)
 #Frames: 336
 #Mean scene luma: 55.7657
 #Panels: original | Otsu binary | Canny edges
-
+Q：手工g++和CMake的关系
+A：g++负责编译并进行具体操作，CMake调用g++
 
 
 ## 7. Git / GitHub
